@@ -28,7 +28,7 @@ Now that you're in the postgres console, enter the following two commands:
 -       postgres=# alter database quickframe owner to postgres;
 
 NOTE: If you want to use a different name for the database, that's fine. Make sure to edit the following line in the "application.properties" file of this project.
-spring.datasource.url = jdbc:postgresql://localhost:5432/<database-name>
+spring.datasource.url = jdbc:postgresql://localhost:5432/[database-name]
 
 ### Add the credentials to system env for database access:
 - Go to your system configuration file(e.g. bash_profile). (In my case, its .zshenv file)
