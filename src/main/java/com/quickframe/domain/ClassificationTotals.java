@@ -19,6 +19,11 @@ public class ClassificationTotals {
     public ClassificationTotals() {
     }
 
+    public ClassificationTotals(String classification, Integer totals) {
+        this.classification = classification;
+        this.totals = totals;
+    }
+
     public String getClassification() {
         return classification;
     }
