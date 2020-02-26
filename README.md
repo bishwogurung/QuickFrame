@@ -1,10 +1,18 @@
 # QuickFrame
 
 Technologies Needed:
-Open-JDK 13
-PostgreSQL 12+:
+Open-JDK 13: https://jdk.java.net/13/ 
+IDE (Ideally, use IntelliJ): https://www.jetbrains.com/idea/
+PostgreSQL
 Maven
-IDE (Ideally, use IntelliJ)
+
+If you have homebrew in your machine, you can install two of the above easily by running the following commands in your terminal:
+
+For PostgresSQL:
+$ brew install postgresql
+
+For Maven:
+$ brew install maven
 
 ## IDE Configuration
 Ensure that the maven dependencies are imported automatically.
