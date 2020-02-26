@@ -25,14 +25,14 @@ public class ClassificationTotalsService {
 
     private static Map<String, Integer> ctMap = new HashMap<>();
 
-    StringBuilder objectNumberSB;
+    private static StringBuilder objectNumberSB;
 
     public void saveAllClassificationTotals(List<ClassificationTotals> classificationTotals) {
         classificationTotalsRepository.saveAll(classificationTotals);
     }
 
     // Problem 1: Find records which have a valid "Object Number" value
-    public void parseCSVFile(File csvFile) throws IOException {
+    public Map<String, Integer> parseCSVFile(File csvFile) throws IOException {
 
         // ignore the columns in csv file that aren't being used in the QuickFrameDataSet entity
         ObjectMapper csvMapper = new CsvMapper().enable(CsvParser.Feature.IGNORE_TRAILING_UNMAPPABLE);
@@ -88,7 +88,7 @@ public class ClassificationTotalsService {
             }
 
         }
-        storeAllClassificationTotals(ctMap);
+        return ctMap;
     }
 
     // Problem 3: Aggregate the classification values
@@ -110,9 +110,9 @@ public class ClassificationTotalsService {
     // Final step: Store the aggregated classification values in the database
     public void storeAllClassificationTotals(Map<String, Integer> classificationTotalsMap) {
         List<ClassificationTotals> ct_list = new ArrayList<>();
-        ClassificationTotals ct = new ClassificationTotals();
 
         classificationTotalsMap.forEach((k, v) -> {
+            ClassificationTotals ct = new ClassificationTotals();
             ct.setClassification(k);
             ct.setTotals(v);
             ct_list.add(ct);
