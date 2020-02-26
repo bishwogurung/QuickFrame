@@ -38,6 +38,7 @@ public class QuickFrameApplication implements CommandLineRunner {
             logger.error("Error: Something went wrong when trying to load the file: " + fileName, e);
         }
 
-        classificationTotalsService.parseCSVFile(csvFile);
+        Map<String, Integer> classificationTotalsMap = classificationTotalsService.parseCSVFile(csvFile);
+        classificationTotalsService.storeAllClassificationTotals(classificationTotalsMap);
     }
 }
